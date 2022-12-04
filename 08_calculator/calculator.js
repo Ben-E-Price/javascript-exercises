@@ -9,7 +9,7 @@ const subtract = function(num1, num2) {
 const sum = function(sumArray) {
   initalValue = 0;
 
-  finalSum = sumArray.reduce((totalValue, currentValue) => {
+  const finalSum = sumArray.reduce((totalValue, currentValue) => {
     return totalValue += currentValue;
   }, initalValue);
 
@@ -17,7 +17,7 @@ const sum = function(sumArray) {
 };
 
 const multiply = function(mutiplicationArray) {
-  finalSum = mutiplicationArray.reduce((totalValue, currentValue) => {
+  const finalSum = mutiplicationArray.reduce((totalValue, currentValue) => {
     return totalValue *= currentValue;
   }, initalValue);
 
@@ -27,7 +27,7 @@ const multiply = function(mutiplicationArray) {
 const power = function(numValue, powerIn) {
   let powerValue = 0;
 
-	for(let i = 0; i < powerIn){
+	for(let i = 0; i < powerIn; i++){
     powerValue = numValue * numValue;
   };
 
