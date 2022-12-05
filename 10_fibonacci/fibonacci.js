@@ -1,8 +1,7 @@
 const fibonacci = function(fibPosNum) {
     //convert strings to nums - Account for negative values <0 
     function cleanInput(inputNum) {
-        inputNum = Number(inputNum);
-        return inputNum <= 0? 0 : inputNum; 
+        return inputNum = Number(inputNum);
     };
 
     function calcSeq(posNum) {
@@ -24,14 +23,20 @@ const fibonacci = function(fibPosNum) {
         return fibValues
     };
 
+    
     const sanInput = cleanInput(fibPosNum);
-    const fibValues = calcSeq(cleanInput);
+    
+    //Ensures input number is positive
+    if(sanInput <= 0){
+        return "OOPS"
+    } else {   
+        const fibValues = calcSeq(cleanInput);
+        return fibValues[sanInput -1];
+    };
 
-
-    return fibValues[sanInput -1];
 };
 
-console.log(fibonacci(1));
+fibonacci(5);
 
 // Do not edit below this line
 // module.exports = fibonacci;
