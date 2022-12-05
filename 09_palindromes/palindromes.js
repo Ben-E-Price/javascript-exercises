@@ -45,23 +45,41 @@ const palindromes = function (inString) {
             return cleanStrings;
         };
         
-        console.log(removeIllegalChars(arrayOfStrings))
-
-        return arrayOfStrings;
+        return removeIllegalChars(arrayOfStrings);
     };
 
-    //reverse input string
-    sanitizeString(inString);
-    let reverseString = "";
+    //String comparision
+    function stringComp(inArray) {
+        let present = false;
 
-    for(let i = inString.length -1; i >= 0; i--){
-        reverseString.concat(inString.charAt(i));
-    }
+        //Create reverse string
+        function reverseString(inString) {
+            let reversedString = "";
+            
+            //Creates new string by looping backwards over input string
+            for(let i = inString.length -1; i >= 0; i--){
+                // reverseString += inString.charAt(i);
+                reversedString = reversedString.concat(inString.charAt(i));
+            };
+            return reversedString;
+        };
 
-//Comapre newString with input string
+        inArray.forEach((element, index) => {
+            const currentString = element;
+            const reversedString = reverseString(currentString)
+            //Returns true if palindromes exist
+            if(reversedString === currentString){
+                present = true;
+            };
+        });
+        
+        return present
+    };
+
+    return stringComp(sanitizeString(inString));
 };
 
 palindromes("rIn432 sdfs 345 ospd%f sdfsdf fred 45357 qsvcr45yb ggn&");
 
 // Do not edit below this line
-// module.exports = palindromes;
+module.exports = palindromes;
